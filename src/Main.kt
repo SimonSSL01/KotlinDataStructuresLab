@@ -4,4 +4,9 @@ fun main() {
     reto3()
     reto4()
     reto5()
+    reto6()
+    reto7()
+    reto8()
+    reto9()
+    reto10()
 }

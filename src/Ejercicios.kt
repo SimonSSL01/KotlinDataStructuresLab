@@ -54,3 +54,66 @@ fun reto5() {
     println("Original: ${historial.joinToString()}")
     println("Invertido: ${invertido.joinToString()}")
 }
+
+fun reto6(){
+    println("Reto 6: Compatibilidad de Intereses")
+    val interesesP1 = setOf("Cine", "Musica", "Viajes", "Lecturas")
+    val interesesP2 = setOf("Musica", "Downhill", "Viajes", "Motos")
+    val comunes = interesesP1.intersect(interesesP2)
+    val exclusivosP1 = interesesP1.subtract(interesesP2)
+
+    println("Intereses en comun: $comunes")
+    println("Intereses exclusivos: $exclusivosP1")
+}
+
+fun reto7() {
+    println("Reto 7: Inventario de Despensa")
+
+    val despensa = mutableMapOf("Cereal" to 5, "Frijol" to 2, "Queso" to 1, "Leche" to 3, "Arroz" to 7)
+    fun consumir(producto: String, cantidad: Int) {
+        val actual = despensa[producto] ?: 0
+        if (actual > 0) {
+            val nuevo = actual - cantidad
+            if (nuevo <= 0) {
+                despensa.remove(producto)
+                println("El producto $producto esta agotado")
+            } else {
+                despensa[producto] = nuevo
+            }
+        }
+    }
+    println("Despensa inicial: $despensa")
+    consumir("Leche", 2)
+    consumir("Arroz", 5)
+    println("Despensa final: $despensa")
+}
+
+fun reto8() {
+    println("Reto 8: Calculo de promedio academico")
+    val notas = listOf(4.5 to 0.6, 3.5 to 0.1, 4.5 to 0.1, 4.5 to 0.1)
+    var notaFinal = 0.0
+    for (par in notas) {
+        notaFinal += par.first * par.second
+    }
+    println("Nota final: $notaFinal")
+}
+
+fun reto9() {
+    println("Reto 9: Traductor de codigos de pais")
+    val paises = mapOf("CO" to "Colombia", "UK" to "United Kindom", "USA" to "United States", "MX" to "Mexico")
+    for((codigo, nombre) in paises) {
+        println("El codigo $codigo pertenece a $nombre")
+    }
+}
+
+fun reto10() {
+    println("Reto 10: Rotacion de turnos")
+    val empleados = listOf("Empleado1", "Empleado2", "Empleado3", "Empleado4", "Empleado5", "Empleado6", "Empleado7")
+    val k = 2
+    val rotada = mutableSetOf<String>()
+    for (i in empleados.indices) {
+        rotada.add(empleados[(i + k) % empleados.size])
+    }
+    println("Lista de empleados original: $empleados")
+    println("Lista de empleados rotada: $rotada")
+}
